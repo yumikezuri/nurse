@@ -32,7 +32,8 @@ class BPView(FormView):
         max_systolic_bp = max(systolic_bp_values)
         min_diastolic_bp = min(diastolic_bp_values)
 
-        mean_bp = (max_systolic_bp - min_diastolic_bp) / 3 + min_diastolic_bp
+        #mean_bp = (max_systolic_bp - min_diastolic_bp) / 3 + min_diastolic_bp
+        mean_bp = round((max_systolic_bp - min_diastolic_bp) / 3 + min_diastolic_bp, 1)
         
         context = self.get_context_data()
         context['mean_bp'] = mean_bp

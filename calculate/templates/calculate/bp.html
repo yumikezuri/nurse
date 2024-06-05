@@ -9,26 +9,27 @@
     <form method="post">    
 	{% csrf_token %}
 		<div class="mb-3">
-	      	<label for="id_systolic_bp" class="form-label">「収縮期血圧」を入力してください（スペースで区切ってください）:</label>
+	      	<label for="id_systolic_bp" class="form-label"><span style="color: red; font-size: 20px;">収縮期血圧</span>を入力してください（数値はスペースで区切ってください）:</label>
 	       	<input type="text" class="form-control" id="id_systolic_bp" name="systolic_bp" required>
 	   	</div>
 	   	
 	   	<div class="mb-3">
-	      	<label for="id_diastolic_bp" class="form-label">「拡張期血圧」を入力してください（スペースで区切ってください）:</label>
+	      	<label for="id_diastolic_bp" class="form-label"><span style="color: blue; font-size: 20px;">拡張期血圧</span>を入力してください（数値はスペースで区切ってください）:</label>
 	       	<input type="text" class="form-control" id="id_diastolic_bp" name="diastolic_bp" required>
 	   	</div>
 	   	
-	    <button type="submit" class="btn btn-outline-primary">計算</button>
+	    <button type="submit" class="btn btn-success">計算</button>
 	</form>
+	
+	
+	
     {% if mean_bp %}
-    <div class="mt-3">
-        <p>平均血圧: {{ mean_bp }}</p>
-        <p>収縮期血圧の最大値: {{ max_systolic_bp }}</p>
-        <p>拡張期血圧の最小値: {{ min_diastolic_bp }}</p>
-    </div>
+	    <div class="mt-3">
+	    	<p><span style="font-weight: bold;">平均血圧</span> = (<span style="color: red;">{{ max_systolic_bp }}</span> - <span style="color: blue;">{{ min_diastolic_bp }}</span>) ÷ 3 + <span style="color: blue;">{{ min_diastolic_bp }}</span> = <span style="font-size: 30px; font-weight: bold;">{{ mean_bp }}</span></p>
+	    </div>
     {% endif %}
     
     <br><br>
-    <a href="{% url 'calculate:home' %}">戻る</a>
+    <a href="{% url 'calculate:home' %}" class="btn btn-secondary">戻る</a>
 </div>
 {% endblock %}
