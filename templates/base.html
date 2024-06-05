@@ -14,13 +14,24 @@
 		
 	</head>
 	
-	<body>
-	
-		<div>
-			<nav>
-				<div>看護計算</div>
-			</nav>
-		</div>
+	<body style="background-color: #b0c4de;">
+		
+		<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #fffacd;">
+		  	<div class="container-fluid">
+		    	<a class="navbar-brand" href="#">Nursing Calculations</a>
+		    	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		      		<span class="navbar-toggler-icon"></span>
+		    	</button>
+		    	<div class="collapse navbar-collapse" id="navbarNav">
+		      		<ul class="navbar-nav me-auto">
+		        		<li class="nav-item">
+		          			<a class="nav-link" href="{% url 'calculate:home' %}">home</a>
+		        		</li>
+		        		<!-- 他のメニュー項目を追加する場合はここに追加 -->
+		      		</ul>
+		    	</div>
+		  	</div>
+		</nav>
 	
 	
 		{% block main %}
